@@ -1,0 +1,79 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox fx:controller="calculator.set.Controller"
+      xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER" spacing="50" style="-fx-background-image:url('73048.jpg');-fx-background-size: 100% 100%" >
+    <Label style="-fx-font-size: 34px;-fx-font-weight: bold" textFill="white">Set Calculator</Label>
+    <HBox alignment="CENTER_LEFT" spacing="10" >
+        <VBox.margin>
+            <Insets left="50">
+
+            </Insets>
+        </VBox.margin>
+        <VBox spacing="20">
+            <HBox.margin>
+                <Insets right="50">
+                </Insets>
+            </HBox.margin>
+            <HBox spacing="10">
+                <TextField prefWidth="320" promptText="Enter Universe" fx:id="uniText" style="-fx-font-size: 18">
+
+                </TextField>
+                <Button  style="-fx-font-size: 18" onMouseClicked="#inUni" fx:id="uniButton">Enter</Button>
+            </HBox>
+            <HBox spacing="10">
+
+                <TextField   prefWidth="320" style="-fx-font-size: 18" promptText="Enter Sets one by one" fx:id="setText" disable="true">
+
+                </TextField>
+                <Button  style="-fx-font-size: 18" onMouseClicked="#addSet" fx:id="setButton" disable="true">Enter</Button>
+
+            </HBox>
+            <HBox spacing="10">
+                <ComboBox promptText="1st Set"  fx:id="fSet" style="-fx-font-size: 18" >
+
+                </ComboBox>
+                <ComboBox promptText="Operator" fx:id="operator" style="-fx-font-size: 18" onAction="#disableSec">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="∪"/>
+                            <String fx:value="∩"/>
+                            <String fx:value="¬"/>
+
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <ComboBox promptText="2nd Set" fx:id="sSet" style="-fx-font-size: 18">
+
+                </ComboBox>
+            </HBox>
+            <Button onMouseClicked="#calculate" style="-fx-font-size: 18">Calculate</Button>
+            <Label fx:id="answer" style="-fx-font-size:18" textFill="white">
+                <VBox.margin>
+                    <Insets top="50" >
+
+                    </Insets>
+                </VBox.margin>
+            </Label>
+        </VBox>
+        <Label style="-fx-font-size: 18" fx:id="sets" alignment="TOP_RIGHT" textFill="white">
+
+        </Label>
+
+    </HBox>
+    <HBox spacing="20" alignment="BOTTOM_RIGHT">
+        <VBox.margin>
+            <Insets right="50">
+
+            </Insets>
+        </VBox.margin>
+        <Button style="-fx-font-size: 18" onMouseClicked="#info">Info</Button>
+        <Button style="-fx-font-size: 18" onMouseClicked="#exit">Exit</Button>
+    </HBox>
+</VBox>
